@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hello_word/components/appbar.dart';
+import 'package:hello_word/components/card_content.dart';
 
 import 'check_dt.dart';
 
@@ -15,30 +16,25 @@ class _ExpeditionState extends State<Expedition> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ExpeditionAppBar(),
-      body: Card(
-        margin: EdgeInsets.fromLTRB(20, 20, 20, 80),
-        child: Container(
-          constraints: BoxConstraints.expand(),
-          padding: EdgeInsets.fromLTRB(30, 30, 30, 10),
-          child: Column(
-            children: <Widget>[
-              DropdownButton<String>(
-                isExpanded: true,
-                value: gate,
-                style: TextStyle(color: Colors.teal),
-                onChanged: (String text) {
-                  setState(() {
-                    gate = text;
-                  });
-              },
-              items: <String>['P1', 'P2', 'P3', 'P4']
-                  .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-              ),
+      body: CardContent(
+        content: <Widget>[
+          DropdownButton<String>(
+            isExpanded: true,
+            value: gate,
+            style: TextStyle(color: Colors.teal),
+            onChanged: (String text) {
+              setState(() {
+                gate = text;
+              });
+            },
+            items: <String>['P1', 'P2', 'P3', 'P4']
+              .map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+            }).toList(),
+          ),
           SizedBox(height: 30),
           TextField(
             decoration: InputDecoration(
@@ -52,7 +48,6 @@ class _ExpeditionState extends State<Expedition> {
           ),
           Expanded(
             child: Align(
-              widthFactor: 2,
               alignment: Alignment.bottomCenter,
               child: MaterialButton(child: Text("Continuar"),
                 onPressed: (){Navigator.push(
@@ -66,8 +61,7 @@ class _ExpeditionState extends State<Expedition> {
               )
             )
           )
-         ])
-        ),
+        ]
       )
     );
   }

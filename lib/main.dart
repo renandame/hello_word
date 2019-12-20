@@ -15,10 +15,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
     routes: {
-      // When navigating to the "/" route, build the FirstScreen widget.
       '/': (context) => Expedition(),
-      // When navigating to the "/second" route, build the SecondScreen widget.
-      '/check-dt': (context) => CheckDt(),
+      '/check-dt': (context) => CheckDt(dt: "", gate: ""),
     },
     );
   }

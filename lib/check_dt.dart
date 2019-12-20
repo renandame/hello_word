@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'components/appbar.dart';
+import 'components/card_content.dart';
 
 class CheckDt extends StatelessWidget {
   final String dt;
@@ -10,17 +11,14 @@ class CheckDt extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ExpeditionAppBar(),
-      body: Card(
-        margin: EdgeInsets.fromLTRB(20, 20, 20, 80),
-        child: Container(
-          constraints: BoxConstraints.expand(),
-          padding: EdgeInsets.fromLTRB(30, 30, 30, 10),
-          child: Column(
-            children: <Widget>[
-          SizedBox(height: 30),
-          Text("PORTÃO: $gate"),
-          Text("DT: $dt"),
-          Text("PLACA: ABC1234"),
+      body: CardContent(
+        content: <Widget>[
+          Text("PORTÃO: $gate",
+            style: TextStyle(fontSize: 30)),
+          Text("DT: $dt",
+            style: TextStyle(fontSize: 30)),
+          Text("PLACA: ABC1234",
+            style: TextStyle(fontSize: 30)),
           Expanded(
             child: Align(
               widthFactor: 2,
@@ -33,8 +31,7 @@ class CheckDt extends StatelessWidget {
               )
             )
           )
-         ])
-        ),
+        ]
       )
     );
   }
