@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hello_word/check_dt.dart';
+import 'package:hello_word/check_truck.dart';
 import 'package:hello_word/expedition.dart';
 
 void main() => runApp(MyApp());
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
     routes: {
       '/': (context) => Expedition(),
       '/check-dt': (context) => CheckDt(dt: "", gate: ""),
+      '/check-truck': (context) => CheckTruck(dt: "", gate: ""),
     },
     );
   }
